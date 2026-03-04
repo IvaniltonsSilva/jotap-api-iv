@@ -16,8 +16,14 @@ t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 
-fbq('init', '1557155878800203');
+// Inicia os 3 Pixels
+fbq('init', '1557155878800203'); // Pixel 1
+fbq('init', '1754894198818042'); // Pixel 2 (o que estava no seu print)
+fbq('init', 'COLOQUE_O_TERCEIRO_ID_AQUI'); // Pixel 3
+
+// Marca a visita (PageView) em todos os 3 ao mesmo tempo
 fbq('track', 'PageView');
+</script>
 </script>
 
 <style>
@@ -119,16 +125,24 @@ h1 {
 </div>
 
 <script>
+<script>
 function trackClick() {
-    fbq('track', 'Lead'); // Evento padrão Lead
-    // Se quiser redirecionar depois do clique, descomente:
-    // window.location.href = "https://seulink.com";
+    // Esse comando envia o evento para os 3 Pixels configurados acima
+    fbq('track', 'Lead'); 
+    
+    // Se quiser um segundo evento, coloque abaixo (ex: ViewContent)
+    fbq('track', 'Lead');
+    
+    // O redirecionamento (opcional) viria aqui
+}
+</script>
 }
 </script>
 
 </body>
 
 </html>
+
 
 
 
