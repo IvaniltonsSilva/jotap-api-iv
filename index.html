@@ -16,14 +16,12 @@ t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 
-// Inicia os 3 Pixels
-fbq('init', '3742593532549192'); // Pixel 1
-// Marca a visita (PageView) em todos os 3 ao mesmo tempo
+fbq('init', '3742593532549192');
 fbq('track', 'PageView');
-</script>
 </script>
 
 <style>
+
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
@@ -33,7 +31,7 @@ body {
 }
 
 .container {
-    padding: 20px 20px;
+    padding: 20px;
 }
 
 h1 {
@@ -49,7 +47,6 @@ h1 {
     margin-bottom: 40px;
 }
 
-/* BOTÃO */
 .button {
     display: inline-block;
     background-color: #ff0000;
@@ -67,7 +64,6 @@ h1 {
     background-color: #cc0000;
 }
 
-/* ANIMAÇÃO PULSO */
 @keyframes pulse {
     0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,0,0,0.7); }
     70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(255,0,0,0); }
@@ -77,8 +73,6 @@ h1 {
 .alert-box {
     margin-top: 60px;
     padding: 30px;
-    
- 
 }
 
 .alert-box h2 {
@@ -95,67 +89,60 @@ h1 {
     font-size: 14px;
     color: #777;
 }
-</style>
 
+</style>
 </head>
+
 <body>
 
-<img src="foto-perfil.png" alt="Foto do Tipster" style="width: 350px; height: auto; object-fit: contain; margin-bottom: 20px;">
+<div class="container">
 
-    <h1>BILHETE<br>LIBERADO</h1>
+<img src="foto-perfil.png" alt="Foto do Tipster" style="width:350px;height:auto;object-fit:contain;margin-bottom:20px;">
 
-    <div class="subtext">
-        Clique no botão abaixo pra pegar seu bilhete!
-    </div>
+<h1>BILHETE<br>LIBERADO</h1>
 
-    <a href="https://chat.whatsapp.com/HDSbYr0Ns722Nh4dAPDQCQ" class="button" onclick="trackClick()">PEGAR AGORA</a>
+<div class="subtext">
+Clique no botão abaixo pra pegar seu bilhete!
+</div>
 
-    <div class="alert-box">
-        <h2>⚠ Entre e aguarde</h2>
-        <p>As entradas serão enviadas em instantes!</p>
-    </div>
+<a href="#" class="button" onclick="redirectGroup()">PEGAR AGORA</a>
 
-    <div class="footer">
-        Copyright © 2026 – Todos os direitos reservados
-    </div>
+<div class="alert-box">
+<h2>⚠ Entre e aguarde</h2>
+<p>As entradas serão enviadas em instantes!</p>
+</div>
+
+<div class="footer">
+Copyright © 2026 – Todos os direitos reservados
+</div>
 
 </div>
 
 <script>
-<script>
-function trackClick() {
-    // Esse comando envia o evento para os 3 Pixels configurados acima
-    fbq('track', 'Lead'); 
-    
-    // Se quiser um segundo evento, coloque abaixo (ex: ViewContent)
-    fbq('track', 'Subscribe');
-    
-    // O redirecionamento (opcional) viria aqui
+
+function redirectGroup(){
+
+    // Evento de conversão
+    fbq('track','Lead');
+    fbq('track','Subscribe');
+
+    // LISTA DOS 16 GRUPOS
+    const grupos = [
+        "https://chat.whatsapp.com/HDSbYr0Ns722Nh4dAPDQCQ",
+        "https://chat.whatsapp.com/HxGZc3MdjinBibtjF97kGl",
+        "https://chat.whatsapp.com/BuZu4ohubmw8PuCohc9bI5",
+        "https://chat.whatsapp.com/G1NREAoORh21horhjjR1gO",
+    ];
+
+    const grupoEscolhido = grupos[Math.floor(Math.random() * grupos.length)];
+
+    setTimeout(function(){
+        window.location.href = grupoEscolhido;
+    },150);
+
 }
-</script>
-}
+
 </script>
 
 </body>
-
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
