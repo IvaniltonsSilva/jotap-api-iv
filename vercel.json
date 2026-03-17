@@ -1,9 +1,241 @@
-{
-  "redirects": [
-    {
-      "source": "/",
-      "destination": "https://chat.whatsapp.com/G1NREAoORh21horhjjR1gO",
-      "permanent": false
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comunidade do Jota</title>
+
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+
+    fbq('init', '1425994342559573');
+    fbq('init', '1986985358836188');
+    fbq('init', '1754894198818042'); 
+    fbq('init', '1285074343124616');
+    fbq('init', '3742593532549192');
+
+    fbq('track', 'PageView');
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #000;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .lp-container {
+            width: 100%;
+            max-width: 500px;
+            height: 100vh;
+            position: relative;
+            background-image: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.9) 80%), url('jp-bet.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px 15px;
+            text-align: center;
+        }
+
+        /* AJUSTE DO CONTADOR - NÚMEROS MENORES */
+        .odd-multiplier-box {
+            margin-bottom: 5px;
+            font-family: 'Arial Black', sans-serif;
+        }
+
+        .odd-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            color: #aaa;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: -5px;
+        }
+
+        #multiplier {
+            font-size: 48px; /* Reduzi de 65px para 48px */
+            font-weight: 900;
+            color: #ffffff;
+            line-height: 1;
+            transition: color 0.3s ease;
+        }
+
+        .odd-x {
+            color: #ff0000;
+            font-size: 32px; /* Reduzi de 45px para 32px */
+            transition: color 0.3s ease;
+        }
+
+        .headline-container {
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .headline-text {
+            color: #ffffff !important;
+            font-size: 22px;
+            font-weight: 900;
+            text-transform: uppercase;
+            line-height: 1.2;
+        }
+
+        .description {
+            background-color: #ffffff;
+            color: #000000 !important;
+            font-size: 14px;
+            font-weight: bold;
+            padding: 12px;
+            margin-bottom: 20px;
+            line-height: 1.4;
+            border-radius: 8px;
+        }
+
+        .btn-entrar {
+            background-color: #00ff88 !important; /* Verde Neon */
+    color: #000000 !important;           /* Texto Preto para contraste */
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 900;
+    padding: 18px;
+    border-radius: 12px;
+    text-transform: uppercase;
+    box-shadow: 0 0 25px rgba(0, 255, 136, 0.6); /* Brilho Verde */
+    transition: 0.3s;
+    margin-bottom: 25px;
+    display: block;
+    animation: pulse 1.5s infinite;
+    border: none; /* Remove bordas vermelhas se houver */;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
+        }
+
+        .social-proof {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: rgba(0,0,0,0.6);
+            padding: 8px;
+            border-radius: 20px;
+        }
+
+        .avatars img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 2px solid #fff;
+            margin-left: -10px;
+        }
+        .avatars img:first-child { margin-left: 0; }
+        .proof-text { font-size: 12px; color: #ddd; font-weight: bold; } 
+        
+        .highlight-red { color: #ff0000 !important; font-weight: 900; }
+    </style>
+</head>
+<body>
+
+    <div class="lp-container">
+        
+        <div class="odd-multiplier-box">
+            <span class="odd-label">Odd do Bilhete</span>
+            <span id="multiplier">1.00</span><span class="odd-x">x</span>
+        </div>
+
+        <div class="headline-container">
+            <h1 class="headline-text">BILHETE DO DIA COM<br>ODD 100 LIBERADO</h1>
+        </div>
+
+        <p class="description">
+            Clique<span class="highlight-red"> AGORA</span> no botão abaixo para acessar o bilhete pronto de <span class="highlight-red"> HOJE</span>.
+        </p>
+
+        <a href="https://wa.me/5575936180872?text=Fala%20Jota,%20vim%20pelo%20Kwai%20e%20quero%20o%20bilhete!" class="btn-entrar" onclick="trackClick()">🔥 ACESSAR BILHETE</a>
+
+        <div class="social-proof">
+            <div class="avatars">
+                <img src="https://i.pravatar.cc/100?u=11" alt="Membro">
+                <img src="https://i.pravatar.cc/100?u=12" alt="Membro">
+                <img src="https://i.pravatar.cc/100?u=13" alt="Membro">
+                <img src="https://i.pravatar.cc/100?u=14" alt="Membro">
+            </div>
+            <span class="proof-text">Pessoas reais com resultados reais</span>
+        </div>
+    </div>
+
+    <script>
+    function animateOdd() {
+        const display = document.getElementById('multiplier');
+        const oddX = document.querySelector('.odd-x');
+        let current = 1.00;
+        const target = 100.00;
+        const duration = 4000; // 4 segundos para subir
+        const startTime = performance.now();
+
+        function update(currentTime) {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            
+            // Suavização da subida
+            const easeOut = 1 - Math.pow(1 - progress, 3);
+            current = 1 + (target - 1) * easeOut;
+
+            display.innerText = current.toFixed(2);
+
+            // Transição para o verde no final
+            if (current >= 98) {
+                display.style.color = "#00ff88"; // Verde Green
+                display.style.textShadow = "0 0 15px rgba(0, 255, 136, 0.6)";
+                oddX.style.color = "#00ff88";
+            }
+
+            if (progress < 1) {
+                requestAnimationFrame(update);
+            } else {
+                display.innerText = "100.00";
+            }
+        }
+        requestAnimationFrame(update);
     }
-  ]
-}
+
+    window.onload = animateOdd;
+
+    function trackClick() {
+        fbq('track', 'Search');
+        fbq('track', 'Contact');
+        fbq('track', 'Subscribe');
+        fbq('track', 'Lead');
+    }
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
