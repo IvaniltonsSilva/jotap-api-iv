@@ -14,6 +14,11 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
+
+    fbq('init', '1425994342559573');
+    fbq('init', '1986985358836188');
+    fbq('init', '1754894198818042'); 
+    fbq('init', '1285074343124616');
     fbq('init', '3742593532549192');
 
     fbq('track', 'PageView');
@@ -41,7 +46,7 @@
             max-width: 500px;
             height: 100vh;
             position: relative;
-            background-image: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.9) 80%), url('jp-direto.jpg');
+            background-image: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.9) 80%), url('jp-bet.jpg');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -49,7 +54,13 @@
             justify-content: flex-end;
             padding: 30px 15px;
             text-align: center;
-    
+        }
+
+        /* AJUSTE DO CONTADOR - NÚMEROS MENORES */
+        .odd-multiplier-box {
+            margin-bottom: 5px;
+            font-family: 'Arial Black', sans-serif;
+        }
 
         .odd-label {
             font-size: 11px;
@@ -148,17 +159,20 @@
 
     <div class="lp-container">
         
+        <div class="odd-multiplier-box">
+            <span class="odd-label">Odd do Bilhete</span>
+            <span id="multiplier">1.00</span><span class="odd-x">x</span>
         </div>
 
         <div class="headline-container">
-            <h1 class="headline-text">BILHETE DO DIA <br> LIBERADO</h1>
+            <h1 class="headline-text">BILHETE DO DIA <br>LIBERADO</h1>
         </div>
 
         <p class="description">
-            Clique<span class="highlight-red"> AGORA</span> no botão abaixo para acessar o bilhete pronto de <span class="highlight-red"> HOJE</span>.
+            Clique<span class="highlight-red"> AGORA</span> no botão abaixo para falar comigo e acessar o bilhete pronto de <span class="highlight-red"> HOJE</span>.
         </p>
 
-        <a href="https://wa.me/5575936180769?text=Ei%20jota%2C%20quero%20receber%20a%20boa%20de%20hoje" class="btn-entrar" onclick="trackClick()">🔥 ACESSAR BILHETE</a>
+        <a href="https://wa.me/5575936180872?text=Fala%20Jota,%20vim%20pelo%20Kwai%20e%20quero%20o%20bilhete!" class="btn-entrar" onclick="trackClick()">🔥 ACESSAR BILHETE</a>
 
         <div class="social-proof">
             <div class="avatars">
