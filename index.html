@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comunidade do Jota</title>
+    <title>Comunidade do Jota - Jogos do Dia</title>
 
     <script>
     !function(f,b,e,v,n,t,s)
@@ -58,7 +58,7 @@
             100% { transform: translateY(200%); }
         }
 
-        /* CONTAINER */
+        /* CONTAINER PRINCIPAL */
         .lp-wrapper {
             position: relative;
             z-index: 10;
@@ -68,82 +68,104 @@
             flex-direction: column;
             align-items: center;
             justify-content: space-between;
-            padding: 60px 20px;
+            padding: 50px 0;
             background: 
-                radial-gradient(circle at center, rgba(2, 2, 2, 0.2) 0%, var(--bg) 90%),
+                radial-gradient(circle at center, rgba(2, 2, 2, 0.1) 0%, var(--bg) 90%),
                 url('jp-direto.jpg') center/cover no-repeat fixed;
         }
 
-        /* ODD BOX */
-        .odd-multiplier-box {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(12px);
-            padding: 30px 40px;
-            border-radius: 28px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            margin-bottom: 20px;
-            text-align: center;
+        .header-section { width: 100%; text-align: center; overflow: hidden; }
+        
+        .section-label { 
+            font-size: 12px; 
+            text-transform: uppercase; 
+            color: var(--primary); 
+            letter-spacing: 4px; 
+            margin-bottom: 15px;
+            font-weight: bold;
         }
 
-        .odd-label { font-size: 12px; text-transform: uppercase; color: #888; letter-spacing: 3px; display: block; margin-bottom: 10px; }
-        #multiplier { font-size: 80px; font-weight: 900; line-height: 1; }
-        .odd-x { color: var(--accent); font-size: 40px; }
-
-        .headline { font-size: 28px; font-weight: 900; text-transform: uppercase; text-align: center; margin-top: 20px; }
-
-        /* --- BOTÃO FIXADO --- */
-        .btn-container {
+        /* CARROSSEL DE JOGOS */
+        .carousel-container {
+            display: flex;
             width: 100%;
-            max-width: 350px;
-            margin-bottom: 30px;
-            position: relative;
-            z-index: 50; /* Garante que está no topo */
+            overflow: hidden;
+            padding: 10px 0;
         }
 
-        /* O efeito de borda brilhante */
-        .btn-border-beam {
-            position: relative;
-            padding: 2px;
-            border-radius: 18px;
-            overflow: hidden;
+        .carousel-track {
+            display: flex;
+            gap: 20px;
+            animation: scroll 25s linear infinite;
+            padding-left: 20px;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .game-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(15px);
+            min-width: 260px;
+            padding: 20px;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .league-name {
+            font-size: 10px;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
             display: block;
-            text-decoration: none;
+        }
+
+        .teams-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            gap: 10px;
+        }
+
+        .team { display: flex; flex-direction: column; align-items: center; gap: 8px; flex: 1; }
+        .team img { width: 45px; height: 45px; object-fit: contain; }
+        .team span { font-size: 12px; font-weight: bold; color: #fff; white-space: nowrap; }
+        .vs { font-weight: 900; color: var(--primary); font-size: 18px; }
+
+        .headline { font-size: 26px; font-weight: 900; text-transform: uppercase; margin-top: 30px; line-height: 1; padding: 0 20px;}
+
+        /* BOTÃO E RODAPÉ */
+        .footer-section { width: 100%; display: flex; flex-direction: column; align-items: center; padding: 0 20px; }
+
+        .btn-container { width: 100%; max-width: 350px; margin-bottom: 30px; position: relative; }
+        
+        .btn-border-beam {
+            position: relative; padding: 2px; border-radius: 18px; overflow: hidden; display: block; text-decoration: none;
         }
 
         .btn-border-beam::before {
-            content: "";
-            position: absolute;
-            top: -50%; left: -50%; width: 200%; height: 200%;
+            content: ""; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
             background: conic-gradient(transparent, transparent, var(--primary), transparent);
             animation: rotate 4s linear infinite;
         }
 
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
+        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
         .btn-content {
-            position: relative;
-            background: #0a0a0a;
-            color: #fff;
-            padding: 22px;
-            border-radius: 16px;
-            font-size: 18px;
-            font-weight: 900;
-            text-transform: uppercase;
-            display: block;
-            z-index: 5;
-            text-align: center;
-            transition: 0.3s;
+            position: relative; background: #0a0a0a; color: #fff; padding: 22px; border-radius: 16px;
+            font-size: 18px; font-weight: 900; text-transform: uppercase; display: block; z-index: 5; text-align: center;
         }
 
-        .btn-border-beam:hover .btn-content {
-            background: #111;
-            box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
-        }
+        .social-proof { display: flex; align-items: center; gap: 12px; background: rgba(255, 255, 255, 0.05); padding: 10px 20px; border-radius: 100px; border: 1px solid rgba(255, 255, 255, 0.1); }
+        .avatars img { width: 30px; height: 30px; border-radius: 50%; border: 2px solid #000; margin-left: -12px; }
+        .avatars img:first-child { margin-left: 0; }
+        .proof-text { font-size: 11px; color: #ccc; font-weight: 600; }
 
-        }
     </style>
 </head>
 <body>
@@ -152,52 +174,91 @@
 
     <div class="lp-wrapper">
         
-        <header>
-            <div class="odd-multiplier-box">
-                <span class="odd-label">Multiplicador Atual</span>
-                <span id="multiplier">1.00</span><span class="odd-x">x</span>
-            </div>
-            <h1 class="headline">BILHETE DO DIA <br><span style="color: var(--primary)">LIBERADO</span></h1>
-        </header>
+        <div class="header-section">
+            <p class="section-label">Jogos do Dia</p>
+            
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    
+                    <div class="game-card">
+                        <span class="league-name">Brasileirão</span>
+                        <div class="teams-row">
+                            <div class="team">
+                                <img src="https://crests.football-data.org/1765.png" alt="Fluminense">
+                                <span>Fluminense</span>
+                            </div>
+                            <div class="vs">VS</div>
+                            <div class="team">
+                                <img src="https://crests.football-data.org/1766.png" alt="Flamengo">
+                                <span>Flamengo</span>
+                            </div>
+                        </div>
+                    </div>
 
-        <div class="btn-container">
-            <a href="https://mais.red/run/ivc-comunidade" class="btn-border-beam" onclick="trackClick()">
-                <span class="btn-content">
-                    🔥 ACESSAR BILHETE AGORA
-                </span>
-            </a>
-        </
+                    <div class="game-card">
+                        <span class="league-name">Premier League</span>
+                        <div class="teams-row">
+                            <div class="team">
+                                <img src="https://crests.football-data.org/65.png" alt="Man City">
+                                <span>Man City</span>
+                            </div>
+                            <div class="vs">VS</div>
+                            <div class="team">
+                                <img src="https://crests.football-data.org/57.png" alt="Arsenal">
+                                <span>Arsenal</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="game-card">
+                        <span class="league-name">Brasileirão</span>
+                        <div class="teams-row">
+                            <div class="team">
+                                <img src="https://crests.football-data.org/1765.png" alt="Fluminense">
+                                <span>Fluminense</span>
+                            </div>
+                            <div class="vs">VS</div>
+                            <div class="team">
+                                <img src="https://crests.football-data.org/1766.png" alt="Flamengo">
+                                <span>Flamengo</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="game-card">
+                        <span class="league-name">Premier League</span>
+                        <div class="teams-row">
+                            <div class="team">
+                                <img src="https://crests.football-data.org/65.png" alt="Man City">
+                                <span>Man City</span>
+                            </div>
+                            <div class="vs">VS</div>
+                            <div class="team">
+                                <img src="https://crests.football-data.org/57.png" alt="Arsenal">
+                                <span>Arsenal</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <h1 class="headline">BILHETE DO DIA <br><span style="color: var(--primary)">LIBERADO</span></h1>
+        </div>
+
+        <div class="footer-section">
+            <div class="btn-container">
+                <a href="https://mais.red/run/ivc-comunidade" class="btn-border-beam" onclick="trackClick()">
+                    <span class="btn-content">🔥 ACESSAR BILHETE AGORA</span>
+                </a>
+            </div>
+
             </div>
         </div>
 
     </div>
 
     <script>
-    function animateOdd() {
-        const display = document.getElementById('multiplier');
-        const oddX = document.querySelector('.odd-x');
-        let current = 1.00;
-        const target = 100.00;
-        const duration = 3000; 
-        const startTime = performance.now();
-
-        function update(currentTime) {
-            const elapsed = currentTime - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            const easeOut = 1 - Math.pow(1 - progress, 4);
-            current = 1 + (target - 1) * easeOut;
-            display.innerText = current.toFixed(2);
-            if (current >= 95) {
-                display.style.color = "#00ff88"; 
-                display.style.textShadow = "0 0 30px rgba(0, 255, 136, 0.8)";
-                oddX.style.color = "#00ff88";
-            }
-            if (progress < 1) requestAnimationFrame(update);
-        }
-        requestAnimationFrame(update);
-    }
-    window.onload = animateOdd;
-
     function trackClick() {
         fbq('track', 'Lead');
     }
