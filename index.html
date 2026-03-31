@@ -23,7 +23,6 @@
             font-family: 'Arial', sans-serif;
         }
 
-        /* LINHAS DE FUNDO ANIMADAS */
         .bg-lines {
             position: fixed;
             inset: 0;
@@ -46,7 +45,6 @@
             100% { transform: translateY(200%); }
         }
 
-        /* WRAPPER PRINCIPAL */
         .lp-wrapper {
             position: relative;
             z-index: 10;
@@ -54,8 +52,8 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            padding: 40px 0;
+            justify-content: flex-start; /* Alinha tudo para o topo para controlarmos as margens */
+            padding: 20px 0;
             background: 
                 radial-gradient(circle at center, rgba(2, 2, 2, 0.4) 0%, var(--bg) 95%),
                 url('jp-direto.jpg') center/cover no-repeat fixed;
@@ -72,7 +70,6 @@
             font-weight: bold;
         }
 
-        /* CARROSSEL */
         .carousel-container { display: flex; width: 100%; overflow: hidden; padding: 10px 0; }
         .carousel-track { display: flex; gap: 20px; animation: scroll 25s linear infinite; padding-left: 20px; }
 
@@ -96,21 +93,29 @@
         .team img { width: 45px; height: 45px; object-fit: contain; }
         .vs { font-weight: 900; color: var(--primary); font-size: 18px; }
 
-        /* HEADLINE COM FONTE KANIT */
+        /* AJUSTE: NOME MAIS EM BAIXO */
         .headline { 
             font-family: 'Kanit', sans-serif;
             font-size: clamp(32px, 10vw, 48px); 
             font-weight: 900; 
             font-style: italic;
             text-transform: uppercase; 
-            margin: 200px 0;
+            margin-top: 100px; /* Aumentei para o nome descer */
             line-height: 1.1;
             padding: 0 20px;
             text-shadow: 0 4px 15px rgba(0,0,0,0.8);
+            text-align: center;
         }
 
-        /* BOTÃO ORIGINAL (VERDE NEON) */
-        .footer-section { width: 100%; display: flex; flex-direction: column; align-items: center; padding: 0 20px; }
+        /* AJUSTE: CONJUNTO DO BOTÃO MAIS PRA CIMA */
+        .footer-section { 
+            width: 100%; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            padding: 0 20px; 
+            margin-top: -30px; /* Margem negativa faz o bloco subir */
+        }
 
         .btn-container { width: 100%; max-width: 380px; margin-bottom: 15px; animation: pulse 2s infinite ease-in-out; }
         
@@ -137,7 +142,7 @@
             font-size: 18px; font-weight: 900; text-transform: uppercase; display: block; z-index: 5; text-align: center;
         }
 
-        /* CAIXA DE AVISO */
+        /* AJUSTE: CAIXA DE AVISO ACIMA DO BOTÃO */
         .alert-box {
             width: 100%;
             max-width: 380px;
@@ -145,8 +150,8 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 12px;
             padding: 15px;
-            margin-bottom: 5px;
-            backdrop-filter: blur(10px);
+            margin-bottom: 20px; /* Espaço para o botão abaixo dela */
+            backdrop-filter: blur(40px);
         }
 
         .alert-box p { font-size: 13px; color: #fff; line-height: 1.4; text-align: center; }
@@ -162,7 +167,6 @@
         
         <div class="header-section">
             <p class="section-label">Jogos do Dia</p>
-            
             <div class="carousel-container">
                 <div class="carousel-track">
                     <div class="game-card">
@@ -177,13 +181,6 @@
                             <div class="team"><img src="Internacional.png" alt=""><span>Inter</span></div>
                             <div class="vs">VS</div>
                             <div class="team"><img src="https://crests.football-data.org/1776.png" alt=""><span>São Paulo</span></div>
-                        </div>
-                    </div>
-                    <div class="game-card">
-                        <div class="teams-row">
-                            <div class="team"><img src="Mirassol-SP HD.png" alt=""><span>Athletico</span></div>
-                            <div class="vs">VS</div>
-                            <div class="team"><img src="https://crests.football-data.org/1770.png" alt=""><span>Botafogo</span></div>
                         </div>
                     </div>
                 </div>
