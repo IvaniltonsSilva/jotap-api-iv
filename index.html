@@ -37,16 +37,16 @@
             overflow-x: hidden;
         }
 
-        /* FUNDO FIXO */
+        /* CONTAINER PRINCIPAL */
         .lp-wrapper {
             position: relative;
             z-index: 10;
             width: 100%;
-            height: 100vh; /* Ocupa exatamente a altura da tela */
+            height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: space-between; /* Distribui topo, meio e baixo */
+            justify-content: center; /* Mudado para center para aproximar os elementos */
             padding: 20px 0;
             background: 
                 radial-gradient(circle at center, rgba(2, 2, 2, 0.4) 0%, var(--bg) 95%),
@@ -54,7 +54,7 @@
         }
 
         /* SEÇÃO TOPO (CARROSSEL) */
-        .header-section { width: 100%; text-align: center; }
+        .header-section { width: 100%; text-align: center; position: absolute; top: 20px; }
         
         .section-label { 
             font-size: 10px; 
@@ -83,20 +83,18 @@
         .team span { font-size: 9px; font-weight: bold; display: block; margin-top: 3px;}
         .vs { font-size: 12px; color: var(--primary); font-weight: 900; }
 
-        /* SEÇÃO MEIO (HEADLINE) - Centralizada automaticamente */
+        /* SEÇÃO MEIO (HEADLINE) */
         .headline-container {
-            flex-grow: 1; /* Faz esta parte ocupar o espaço que sobrar */
-            display: flex;
-            align-items: center;
-            justify-content: center;
             text-align: center;
+            margin-top: 60px; /* Ajuste para não bater no carrossel */
+            margin-bottom: 20px; /* Diminuído para aproximar da caixa de aviso */
         }
 
         .headline { 
             font-family: 'Bebas Neue', sans-serif; 
             text-transform: uppercase; 
             line-height: 0.85; 
-            font-size: clamp(60px, 15vw, 90px); /* Tamanho de fonte que se ajusta à tela */
+            font-size: clamp(60px, 15vw, 85px);
         }
 
         /* SEÇÃO BAIXO (BOTÃO E AVISO) */
@@ -105,29 +103,29 @@
             display: flex; 
             flex-direction: column; 
             align-items: center; 
-            padding: 0 20px 20px; 
+            padding: 0 20px; 
         }
 
         .alert-box {
             width: 100%;
             max-width: 360px;
-            background: rgba(255, 255, 255, 0.07);
-            border-radius: 12px;
-            padding: 12px;
-            margin-bottom: 15px;
-            backdrop-filter: blur(5px);
+            background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 20px;
+            backdrop-filter: blur(10px);
         }
 
-        .alert-box p { font-size: 12px; color: #eee; text-align: center; line-height: 1.4; }
-        .alert-box span { color: #ff8800; font-weight: bold; }
+        .alert-box p { font-size: 13px; color: #d1d1d1; text-align: left; line-height: 1.5; }
+        .alert-box span { color: #ff8800; font-weight: bold; margin-right: 4px; }
 
-        .btn-container { width: 100%; max-width: 360px; animation: pulse 2s infinite; }
-        
-        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.03); } }
+        .btn-container { width: 100%; max-width: 350px; margin-bottom: 15px; position: relative; animation: pulse 2s infinite ease-in-out; }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.03); } 100% { transform: scale(1); } }
 
         .btn-border-beam {
-            position: relative; padding: 2px; border-radius: 12px; overflow: hidden; display: block; text-decoration: none;
+            position: relative; padding: 2px; border-radius: 11px; overflow: hidden; display: block; text-decoration: none;
+            box-shadow: 0 0 15px rgba(0, 255, 136, 0.2);
         }
 
         .btn-border-beam::before {
@@ -140,11 +138,13 @@
 
         .btn-content {
             position: relative; 
-            background: #00ff88; /* Cor sólida para destaque total no mobile */
-            color: #000; 
-            padding: 18px; 
-            border-radius: 10px;
-            font-size: 16px; 
+            background: rgba(255, 255, 255, 0.05); 
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #fff; 
+            padding: 20px; 
+            border-radius: 9px;
+            font-size: 18px; 
             font-weight: 900; 
             text-transform: uppercase; 
             display: block; 
@@ -165,28 +165,28 @@
                     <div class="game-card">
                         <div class="teams-row">
                             <div class="team"><img src="Mirassol-SP HD.png"><span>ATHLETICO</span></div>
-                            <div class="vs">X</div>
+                            <div class="vs">VS</div>
                             <div class="team"><img src="https://crests.football-data.org/1770.png"><span>BOTAFOGO</span></div>
                         </div>
                     </div>
                     <div class="game-card">
                         <div class="teams-row">
                             <div class="team"><img src="Internacional.png"><span>INTER</span></div>
-                            <div class="vs">X</div>
+                            <div class="vs">VS</div>
                             <div class="team"><img src="https://crests.football-data.org/1776.png"><span>SÃO PAULO</span></div>
                         </div>
                     </div>
-                     <div class="game-card">
+                    <div class="game-card">
                         <div class="teams-row">
                             <div class="team"><img src="https://crests.football-data.org/1765.png"><span>FLU</span></div>
-                            <div class="vs">X</div>
+                            <div class="vs">VS</div>
                             <div class="team"><img src="https://crests.football-data.org/1779.png"><span>CORINTHIANS</span></div>
                         </div>
                     </div>
                     <div class="game-card">
                         <div class="teams-row">
                             <div class="team"><img src="Mirassol-SP HD.png"><span>ATHLETICO</span></div>
-                            <div class="vs">X</div>
+                            <div class="vs">VS</div>
                             <div class="team"><img src="https://crests.football-data.org/1770.png"><span>BOTAFOGO</span></div>
                         </div>
                     </div>
