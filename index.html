@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Comunidade do Jota - Jogos do Dia</title>
 
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -68,7 +70,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: space-between;
-            padding: 50px 0;
+            padding: 40px 0;
             background: 
                 radial-gradient(circle at center, rgba(2, 2, 2, 0.1) 0%, var(--bg) 90%),
                 url('DSC08016.jpg.jpeg') center/cover no-repeat fixed;
@@ -77,25 +79,25 @@
         .header-section { width: 100%; text-align: center; overflow: hidden; }
         
         .section-label { 
-            font-size: 12px; 
+            font-size: 11px; 
             text-transform: uppercase; 
             color: var(--primary); 
             letter-spacing: 4px; 
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             font-weight: bold;
         }
 
-        /* CARROSSEL DE JOGOS */
+        /* CARROSSEL DE JOGOS (REDUZIDO) */
         .carousel-container {
             display: flex;
             width: 100%;
             overflow: hidden;
-            padding: 03px 0;
+            padding: 10px 0;
         }
 
         .carousel-track {
             display: flex;
-            gap: 12px;
+            gap: 10px;
             animation: scroll 25s linear infinite;
             padding-left: 15px;
         }
@@ -106,22 +108,22 @@
         }
 
         .game-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(15px);
-            min-width: 260px;
-            padding: 15px;
-            border-radius: 24px;
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(10px);
+            min-width: 160px; /* Reduzido */
+            padding: 10px;    /* Reduzido */
+            border-radius: 15px;
             border: 1px solid rgba(255, 255, 255, 0.1);
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.4);
         }
 
         .league-name {
-            font-size: 10px;
-            color: #888;
+            font-size: 9px;
+            color: #aaa;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
             display: block;
         }
 
@@ -129,15 +131,22 @@
             display: flex;
             align-items: center;
             justify-content: space-around;
-            gap: 8px;
+            gap: 5px;
         }
 
-        .team { display: flex; flex-direction: column; align-items: center; gap: 8px; flex: 1; }
-        .team img { width: 45px; height: 45px; object-fit: contain; }
-        .team span { font-size: 12px; font-weight: bold; color: #fff; white-space: nowrap; }
-        .vs { font-weight: 900; color: var(--primary); font-size: 18px; }
+        .team { display: flex; flex-direction: column; align-items: center; gap: 5px; flex: 1; }
+        .team img { width: 32px; height: 32px; object-fit: contain; } /* Escudos reduzidos */
+        .team span { font-size: 10px; font-weight: bold; color: #fff; white-space: nowrap; }
+        .vs { font-weight: 900; color: var(--primary); font-size: 14px; }
 
-        .headline { font-size: 26px; font-weight: 900; text-transform: uppercase; margin-top: 130px; line-height: 1.2; padding: 0 20px;}
+        /* HEADLINE COM BEBAS NEUE */
+        .headline { 
+            font-family: 'Bebas Neue', sans-serif; 
+            text-transform: uppercase; 
+            margin-top: 30px; 
+            line-height: 0.9; 
+            padding: 0 20px;
+        }
 
         /* BOTÃO E RODAPÉ */
         .footer-section { width: 100%; display: flex; flex-direction: column; align-items: center; padding: 0 20px; }
@@ -152,13 +161,13 @@
         
         @keyframes pulse {
             0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+            50% { transform: scale(1.03); }
             100% { transform: scale(1); }
         }
 
         .btn-border-beam {
             position: relative; padding: 2px; border-radius: 11px; overflow: hidden; display: block; text-decoration: none;
-            box-shadow: 0 0 15px rgba(0, 255, 136, 0.3);
+            box-shadow: 0 0 15px rgba(0, 255, 136, 0.2);
         }
 
         .btn-border-beam::before {
@@ -169,12 +178,24 @@
 
         @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
+        /* BOTÃO ESTILO CARROSSEL */
         .btn-content {
-            position: relative; background: #0a0a0a; color: #fff; padding: 22px; border-radius: 16px;
-            font-size: 18px; font-weight: 900; text-transform: uppercase; display: block; z-index: 5; text-align: center;
+            position: relative; 
+            background: rgba(255, 255, 255, 0.05); /* Efeito vidro */
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #fff; 
+            padding: 20px; 
+            border-radius: 9px;
+            font-size: 18px; 
+            font-weight: 900; 
+            text-transform: uppercase; 
+            display: block; 
+            z-index: 5; 
+            text-align: center;
         }
 
-        /* CAIXA DE AVISO ABAIXO DO BOTÃO */
+        /* CAIXA DE AVISO */
         .alert-box {
             width: 100%;
             max-width: 350px;
@@ -182,7 +203,7 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 15px;
             padding: 15px;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             backdrop-filter: blur(10px);
         }
 
@@ -273,37 +294,27 @@
                         </div>
                     </div>
 
-                    <div class="game-card">
-                        <span class="league-name">Brasileirão</span>
-                        <div class="teams-row">
-                            <div class="team">
-                                <img src="Mirassol-SP HD.png" alt="Athletico-PR">
-                                <span>Athletico-PR</span>
-                            </div>
-                            <div class="vs">VS</div>
-                            <div class="team">
-                                <img src="https://crests.football-data.org/1770.png" alt="Botafogo">
-                                <span>Botafogo</span>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
             </div>
 
-            <h1 class="headline">BILHETE GRATUITO <br><span style="color: var(--primary)">LIBERADO</span></h1>
+            <h1 class="headline"> 
+                <span style="font-size: 80px; display: block;">BILHETE</span> 
+                <span style="color: var(--primary); font-size: 60px; display: block;">LIBERADO</span> 
+            </h1>
         </div>
-    <div class="alert-box">
+
+        <div class="footer-section">
+            <div class="alert-box">
                 <p><span>*</span> Entre agora na comunidade, em breve vou mandar uma oportunidade para forrarmos juntos!</p>
             </div>
-      
-        <div class="footer-section">
+              
             <div class="btn-container">
                 <a href="https://mais.red/run/ivc-comunidade" class="btn-border-beam" onclick="trackClick()">
                     <span class="btn-content">🔥 ENTRAR NA COMUNIDADE</span>
                 </a>
             </div>
-
+        </div>
+    </div>
 
     <script>
     function trackClick() {
