@@ -2,40 +2,28 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Comunidade do Jota - Jogos do Dia</title>
 
-    <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1596810441473979');
-    fbq('init', '3742593532549192');
-    fbq('track', 'PageView');
-    </script>
-
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,900;1,900&display=swap');
+
         :root {
             --primary: #00ff88;
-            --accent: #ff0000;
             --bg: #020202;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             background-color: var(--bg);
             color: #fff;
             overflow-x: hidden;
             min-height: 100vh;
+            font-family: 'Arial', sans-serif;
         }
 
-        /* LINHAS DE FUNDO */
+        /* LINHAS DE FUNDO ANIMADAS */
         .bg-lines {
             position: fixed;
             inset: 0;
@@ -58,7 +46,7 @@
             100% { transform: translateY(200%); }
         }
 
-        /* CONTAINER PRINCIPAL */
+        /* WRAPPER PRINCIPAL */
         .lp-wrapper {
             position: relative;
             z-index: 10;
@@ -66,15 +54,14 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            align-items: center;
             justify-content: space-between;
-            padding: 50px 0;
+            padding: 40px 0;
             background: 
-                radial-gradient(circle at center, rgba(2, 2, 2, 0.1) 0%, var(--bg) 90%),
+                radial-gradient(circle at center, rgba(2, 2, 2, 0.4) 0%, var(--bg) 95%),
                 url('jp-direto.jpg') center/cover no-repeat fixed;
         }
 
-        .header-section { width: 100%; text-align: center; overflow: hidden; }
+        .header-section { width: 100%; text-align: center; }
         
         .section-label { 
             font-size: 12px; 
@@ -85,20 +72,9 @@
             font-weight: bold;
         }
 
-        /* CARROSSEL DE JOGOS */
-        .carousel-container {
-            display: flex;
-            width: 100%;
-            overflow: hidden;
-            padding: 10px 0;
-        }
-
-        .carousel-track {
-            display: flex;
-            gap: 20px;
-            animation: scroll 25s linear infinite;
-            padding-left: 20px;
-        }
+        /* CARROSSEL */
+        .carousel-container { display: flex; width: 100%; overflow: hidden; padding: 10px 0; }
+        .carousel-track { display: flex; gap: 20px; animation: scroll 25s linear infinite; padding-left: 20px; }
 
         @keyframes scroll {
             0% { transform: translateX(0); }
@@ -108,57 +84,44 @@
         .game-card {
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
             min-width: 260px;
             padding: 20px;
             border-radius: 24px;
             border: 1px solid rgba(255, 255, 255, 0.1);
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        .league-name {
-            font-size: 10px;
-            color: #888;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .teams-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-            gap: 10px;
-        }
-
-        .team { display: flex; flex-direction: column; align-items: center; gap: 8px; flex: 1; }
+        .teams-row { display: flex; align-items: center; justify-content: space-around; gap: 10px; }
         .team img { width: 45px; height: 45px; object-fit: contain; }
-        .team span { font-size: 12px; font-weight: bold; color: #fff; white-space: nowrap; }
         .vs { font-weight: 900; color: var(--primary); font-size: 18px; }
 
-        .headline { font-size: 46px; font-weight: 900; text-transform: uppercase; margin-top: 200px; line-height: 1.2; padding: 0 20px;}
+        /* HEADLINE COM FONTE KANIT */
+        .headline { 
+            font-family: 'Kanit', sans-serif;
+            font-size: clamp(32px, 10vw, 48px); 
+            font-weight: 900; 
+            font-style: italic;
+            text-transform: uppercase; 
+            margin: 40px 0;
+            line-height: 1.1;
+            padding: 0 20px;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.8);
+        }
 
-        /* BOTÃO E RODAPÉ */
+        /* BOTÃO ORIGINAL (VERDE NEON) */
         .footer-section { width: 100%; display: flex; flex-direction: column; align-items: center; padding: 0 20px; }
 
-        .btn-container { 
-            width: 100%; 
-            max-width: 350px; 
-            margin-bottom: 15px; 
-            position: relative; 
-            animation: pulse 2s infinite ease-in-out;
-        }
+        .btn-container { width: 100%; max-width: 380px; margin-bottom: 15px; animation: pulse 2s infinite ease-in-out; }
         
         @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.03); }
         }
 
         .btn-border-beam {
             position: relative; padding: 2px; border-radius: 18px; overflow: hidden; display: block; text-decoration: none;
-            box-shadow: 0 0 15px rgba(0, 255, 136, 0.3);
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
         }
 
         .btn-border-beam::before {
@@ -174,30 +137,20 @@
             font-size: 18px; font-weight: 900; text-transform: uppercase; display: block; z-index: 5; text-align: center;
         }
 
-        /* CAIXA DE AVISO ABAIXO DO BOTÃO */
+        /* CAIXA DE AVISO */
         .alert-box {
             width: 100%;
-            max-width: 350px;
+            max-width: 380px;
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
+            border-radius: 12px;
             padding: 15px;
-            margin-bottom: 30px;
+            margin-bottom: 5px;
             backdrop-filter: blur(10px);
         }
 
-        .alert-box p {
-            font-size: 13px;
-            color: #d1d1d1;
-            line-height: 1.5;
-            text-align: left;
-        }
-
-        .alert-box span {
-            color: #ff8800;
-            font-weight: bold;
-            margin-right: 4px;
-        }
+        .alert-box p { font-size: 13px; color: #fff; line-height: 1.4; text-align: center; }
+        .alert-box span { color: #ff8800; font-weight: bold; }
 
     </style>
 </head>
@@ -212,82 +165,27 @@
             
             <div class="carousel-container">
                 <div class="carousel-track">
-                    
                     <div class="game-card">
-                        <span class="league-name">Brasileirão</span>
                         <div class="teams-row">
-                            <div class="team">
-                                <img src="Mirassol-SP HD.png" alt="Athletico-PR">
-                                <span>Athletico-PR</span>
-                            </div>
+                            <div class="team"><img src="Mirassol-SP HD.png" alt=""><span>Athletico</span></div>
                             <div class="vs">VS</div>
-                            <div class="team">
-                                <img src="https://crests.football-data.org/1770.png" alt="Botafogo">
-                                <span>Botafogo</span>
-                            </div>
+                            <div class="team"><img src="https://crests.football-data.org/1770.png" alt=""><span>Botafogo</span></div>
                         </div>
                     </div>
-
                     <div class="game-card">
-                        <span class="league-name">Brasileirão</span>
                         <div class="teams-row">
-                            <div class="team">
-                                <img src="Internacional.png" alt="Internacional">
-                                <span>Internacional</span>
-                            </div>
+                            <div class="team"><img src="Internacional.png" alt=""><span>Inter</span></div>
                             <div class="vs">VS</div>
-                            <div class="team">
-                                <img src="https://crests.football-data.org/1776.png" alt="São Paulo">
-                                <span>São Paulo</span>
-                            </div>
+                            <div class="team"><img src="https://crests.football-data.org/1776.png" alt=""><span>São Paulo</span></div>
                         </div>
                     </div>
-
                     <div class="game-card">
-                        <span class="league-name">Brasileirão</span>
                         <div class="teams-row">
-                            <div class="team">
-                                <img src="https://crests.football-data.org/1765.png" alt="Fluminense">
-                                <span>Fluminense</span>
-                            </div>
+                            <div class="team"><img src="Mirassol-SP HD.png" alt=""><span>Athletico</span></div>
                             <div class="vs">VS</div>
-                            <div class="team">
-                                <img src="https://crests.football-data.org/1779.png" alt="Corinthians">
-                                <span>Corinthians</span>
-                            </div>
+                            <div class="team"><img src="https://crests.football-data.org/1770.png" alt=""><span>Botafogo</span></div>
                         </div>
                     </div>
-
-                    <div class="game-card">
-                        <span class="league-name">Brasileirão</span>
-                        <div class="teams-row">
-                            <div class="team">
-                                <img src="https://crests.football-data.org/1771.png" alt="Cruzeiro">
-                                <span>Cruzeiro</span>
-                            </div>
-                            <div class="vs">VS</div>
-                            <div class="team">
-                                <img src="https://crests.football-data.org/1782.png" alt="Vitória">
-                                <span>Vitória</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="game-card">
-                        <span class="league-name">Brasileirão</span>
-                        <div class="teams-row">
-                            <div class="team">
-                                <img src="Mirassol-SP HD.png" alt="Athletico-PR">
-                                <span>Athletico-PR</span>
-                            </div>
-                            <div class="vs">VS</div>
-                            <div class="team">
-                                <img src="https://crests.football-data.org/1770.png" alt="Botafogo">
-                                <span>Botafogo</span>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
             </div>
 
@@ -295,24 +193,18 @@
         </div>
 
         <div class="footer-section">
-            <div class="btn-container">
-                <a href="https://mais.red/run/ivc-comunidade" class="btn-border-beam" onclick="trackClick()">
-                    <span class="btn-content">🔥 PEGAR BILHETE</span>
-                </a>
+            <div class="alert-box">
+                <p><span>*</span> Entre agora na comunidade, em breve vou mandar uma oportunidade para forrarmos juntos!</p>
             </div>
 
-            <div class="alert-box">
-                <p><span>*</span> Fale comigo agora, e em breve vou te mandar uma oportunidade para forrarmos juntos!</p>
+            <div class="btn-container">
+                <a href="https://mais.red/run/ivc-comunidade" class="btn-border-beam">
+                    <span class="btn-content">🔥 PEGAR BILHETE</span>
+                </a>
             </div>
         </div>
 
     </div>
-
-    <script>
-    function trackClick() {
-        fbq('track', 'Lead');
-    }
-    </script>
 
 </body>
 </html>
