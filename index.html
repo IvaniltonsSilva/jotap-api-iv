@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Comunidade do Jota - Jogos do Dia</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -29,7 +27,7 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
 
-        body, html {
+        html, body {
             height: 100%;
             background-color: var(--bg);
             color: #fff;
@@ -59,99 +57,103 @@
             100% { transform: translateY(200%); }
         }
 
-        /* CONTAINER PRINCIPAL */
+        /* WRAPPER PRINCIPAL - Ajustado para ocupar a tela cheia sem sobrar/faltar */
         .lp-wrapper {
             position: relative;
             z-index: 10;
             width: 100%;
-            height: 100vh;
+            height: 100vh; /* Ocupa exatamente a altura da tela */
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: flex-end; /* Conteúdo para baixo para aproximar os elementos */
-            padding-bottom: 30px;
+            justify-content: space-between; /* Empurra o topo pra cima e o botão pra baixo */
+            padding: 20px 0;
             background: 
                 radial-gradient(circle at center, rgba(2, 2, 2, 0.4) 0%, var(--bg) 95%),
-                url('DSC08016.jpg.jpeg') center/cover no-repeat fixed;
+                url('jp-direto.jpg') center/cover no-repeat fixed;
         }
 
-        /* CARROSSEL NO TOPO */
-        .header-section { 
-            width: 100%; 
-            text-align: center; 
-            position: absolute; 
-            top: 20px; 
-        }
+        .header-section { width: 100%; text-align: center; }
         
         .section-label { 
-            font-size: 11px; 
+            font-size: 10px; 
             text-transform: uppercase; 
             color: var(--primary); 
             letter-spacing: 3px; 
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             font-weight: bold;
         }
 
-        .carousel-container { display: flex; width: 100%; overflow: hidden; }
-        .carousel-track { display: flex; gap: 10px; animation: scroll 25s linear infinite; padding-left: 15px; }
-        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        /* CARROSSEL */
+        .carousel-container {
+            display: flex;
+            width: 100%;
+            overflow: hidden;
+            padding: 10px 0;
+        }
+
+        .carousel-track {
+            display: flex;
+            gap: 15px;
+            animation: scroll 20s linear infinite;
+            padding-left: 15px;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
 
         .game-card {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
-            min-width: 20px;
-            padding: 10px;
-            border-radius: 15px;
+            -webkit-backdrop-filter: blur(10px); /* Suporte para iPhone */
+            min-width: 220px;
+            padding: 15px;
+            border-radius: 20px;
             border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .team img { width: 30px; height: 30px; object-fit: contain; }
-        .team span { font-size: 10px; font-weight: bold; color: #fff; display: block; margin-top: 4px; }
-        .vs { font-weight: 900; color: var(--primary); font-size: 14px; margin: 0 5px; }
-        .teams-row { display: flex; align-items: center; justify-content: center; }
-
-        /* HEADLINE AJUSTADA */
-        .headline { 
-            font-family: 'Bebas Neue', sans-serif; 
-            font-size: clamp(40px, 12vw, 60px); 
-            text-transform: uppercase; 
-            line-height: 0.9; 
             text-align: center;
-            margin-bottom: 25px; /* Puxa a caixa de aviso para cima */
-            padding: 0 20px;
         }
 
-        /* SEÇÃO BAIXO (CAIXA E BOTÃO) */
+        .league-name { font-size: 9px; color: #888; text-transform: uppercase; margin-bottom: 8px; display: block; }
+        .teams-row { display: flex; align-items: center; justify-content: space-around; gap: 8px; }
+        .team { display: flex; flex-direction: column; align-items: center; gap: 5px; flex: 1; }
+        .team img { width: 35px; height: 35px; object-fit: contain; }
+        .team span { font-size: 11px; font-weight: bold; }
+        .vs { font-weight: 900; color: var(--primary); font-size: 14px; }
+
+        /* HEADLINE RESPONSIVA */
+        .headline { 
+            font-size: clamp(22px, 6vw, 32px); /* Tamanho automático conforme a tela */
+            font-weight: 900; 
+            text-transform: uppercase; 
+            margin: 20px 0;
+            line-height: 1.1;
+        }
+
+        /* FOOTER SECTION - Centraliza o botão e aviso */
         .footer-section { 
             width: 100%; 
             display: flex; 
             flex-direction: column; 
             align-items: center; 
-            padding: 0 20px; 
+            padding: 0 20px;
+            margin-top: auto; /* Garante que fique no fundo */
         }
 
-        /* CAIXA DE AVISO (IGUAL AO ÚLTIMO MODELO) */
-        .alert-box {
-            width: 100%;
-            max-width: 350px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            padding: 15px;
-            margin-bottom: 20px;
-            backdrop-filter: blur(10px);
-            z-index: 2;
+        .btn-container { 
+            width: 100%; 
+            max-width: 380px; 
+            margin-bottom: 15px; 
+            animation: pulse 2s infinite ease-in-out;
         }
-
-        .alert-box p { font-size: 13px; color: #d1d1d1; text-align: center; line-height: 1.5; }
-        .alert-box span { color: #ff8800; font-weight: bold; margin-right: 4px; }
-
-        /* BOTÃO */
-        .btn-container { width: 100%; max-width: 350px; animation: pulse 2s infinite ease-in-out; }
-        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.03); } }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+        }
 
         .btn-border-beam {
-            position: relative; padding: 2px; border-radius: 14px; overflow: hidden; display: block; text-decoration: none;
+            position: relative; padding: 2px; border-radius: 15px; overflow: hidden; display: block; text-decoration: none;
         }
 
         .btn-border-beam::before {
@@ -163,18 +165,31 @@
         @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
         .btn-content {
-            position: relative; 
-            background: #0a0a0a; 
-            color: #fff; 
-            padding: 20px; 
-            border-radius: 12px;
-            font-size: 18px; 
-            font-weight: 900; 
-            text-transform: uppercase; 
-            display: block; 
-            z-index: 5; 
-            text-align: center;
+            position: relative; background: #0a0a0a; color: #fff; padding: 18px; border-radius: 13px;
+            font-size: 16px; font-weight: 900; text-transform: uppercase; display: block; z-index: 5; text-align: center;
         }
+
+        /* CAIXA DE AVISO - MELHORADA PARA RESPONSIVIDADE */
+        .alert-box {
+            width: 100%;
+            max-width: 380px;
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+        }
+
+        .alert-box p {
+            font-size: 12px;
+            color: #efefef;
+            line-height: 1.4;
+            text-align: left;
+        }
+
+        .alert-box span { color: #ff8800; font-weight: bold; }
 
     </style>
 </head>
@@ -186,49 +201,67 @@
         
         <div class="header-section">
             <p class="section-label">Jogos do Dia</p>
+            
             <div class="carousel-container">
                 <div class="carousel-track">
                     <div class="game-card">
+                        <span class="league-name">Brasileirão</span>
                         <div class="teams-row">
-                            <div class="team"><img src="Mirassol-SP HD.png"><span>ATHLETICO</span></div>
+                            <div class="team"><img src="Mirassol-SP HD.png" alt=""><span>Athletico</span></div>
                             <div class="vs">VS</div>
-                            <div class="team"><img src="https://crests.football-data.org/1770.png"><span>BOTAFOGO</span></div>
+                            <div class="team"><img src="https://crests.football-data.org/1770.png" alt=""><span>Botafogo</span></div>
                         </div>
                     </div>
                     <div class="game-card">
+                        <span class="league-name">Brasileirão</span>
                         <div class="teams-row">
-                            <div class="team"><img src="Internacional.png"><span>INTER</span></div>
+                            <div class="team"><img src="Internacional.png" alt=""><span>Inter</span></div>
                             <div class="vs">VS</div>
-                            <div class="team"><img src="https://crests.football-data.org/1776.png"><span>SÃO PAULO</span></div>
+                            <div class="team"><img src="https://crests.football-data.org/1776.png" alt=""><span>São Paulo</span></div>
                         </div>
                     </div>
                     <div class="game-card">
+                        <span class="league-name">Brasileirão</span>
                         <div class="teams-row">
-                            <div class="team"><img src="https://crests.football-data.org/1765.png"><span>FLU</span></div>
+                            <div class="team"><img src="https://crests.football-data.org/1765.png" alt=""><span>Fluminense</span></div>
                             <div class="vs">VS</div>
-                            <div class="team"><img src="https://crests.football-data.org/1779.png"><span>CORINTHIANS</span></div>
+                            <div class="team"><img src="https://crests.football-data.org/1779.png" alt=""><span>Corinthians</span></div>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <span class="league-name">Brasileirão</span>
+                        <div class="teams-row">
+                            <div class="team"><img src="https://crests.football-data.org/1771.png" alt=""><span>Cruzeiro</span></div>
+                            <div class="vs">VS</div>
+                            <div class="team"><img src="https://crests.football-data.org/1782.png" alt=""><span>Vitória</span></div>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <span class="league-name">Brasileirão</span>
+                        <div class="teams-row">
+                            <div class="team"><img src="Mirassol-SP HD.png" alt=""><span>Athletico</span></div>
+                            <div class="vs">VS</div>
+                            <div class="team"><img src="https://crests.football-data.org/1770.png" alt=""><span>Botafogo</span></div>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <h1 class="headline">BILHETE<br><span style="color: var(--primary)">LIBERADO</span></h1>
         </div>
 
-        <h1 class="headline">
-            BILHETE<br>
-            <span style="color: var(--primary)">LIBERADO</span>
-        </h1>
-
         <div class="footer-section">
-            <div class="alert-box">
-                <p><span>*</span> Entre agora na comunidade, em breve vou mandar uma oportunidade para forrarmos juntos!</p>
-            </div>
-
             <div class="btn-container">
                 <a href="https://mais.red/run/ivc-comunidade" class="btn-border-beam" onclick="trackClick()">
                     <span class="btn-content">🔥 ENTRAR NA COMUNIDADE</span>
                 </a>
             </div>
+
+            <div class="alert-box">
+                <p><span>*</span> Entre agora na comunidade, em breve vou mandar uma oportunidade para forrarmos juntos!</p>
+            </div>
         </div>
+
     </div>
 
     <script>
