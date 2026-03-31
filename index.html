@@ -1,539 +1,241 @@
 <!DOCTYPE html>
-
 <html lang="pt-br">
-
 <head>
-
     <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Comunidade do Jota - Jogos do Dia</title>
 
-
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 
     <script>
-
     !function(f,b,e,v,n,t,s)
-
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-
     if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-
     n.queue=[];t=b.createElement(e);t.async=!0;
-
     t.src=v;s=b.getElementsByTagName(e)[0];
-
     s.parentNode.insertBefore(t,s)}(window, document,'script',
-
     'https://connect.facebook.net/en_US/fbevents.js');
-
     fbq('init', '1596810441473979');
-
     fbq('init', '3742593532549192');
-
     fbq('track', 'PageView');
-
     </script>
 
-
-
     <style>
-
         :root {
-
             --primary: #00ff88;
-
-            --accent: #ff0000;
-
             --bg: #020202;
-
         }
-
-
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
 
-
-
-        body {
-
+        body, html {
+            height: 100%;
             background-color: var(--bg);
-
             color: #fff;
-
             overflow-x: hidden;
-
-            min-height: 100vh;
-
         }
-
-
 
         /* LINHAS DE FUNDO */
-
         .bg-lines {
-
             position: fixed;
-
             inset: 0;
-
             z-index: 0;
-
             background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-
             background-size: 10% 100%;
-
             pointer-events: none;
-
         }
-
-
 
         .bg-lines::after {
-
             content: "";
-
             position: absolute;
-
             top: -100%; left: 0; width: 100%; height: 100%;
-
             background: linear-gradient(to bottom, transparent, rgba(0, 255, 136, 0.1), transparent);
-
             animation: moveLines 6s linear infinite;
-
         }
-
-
 
         @keyframes moveLines {
-
             0% { transform: translateY(0%); }
-
             100% { transform: translateY(200%); }
-
         }
-
-
 
         /* CONTAINER PRINCIPAL */
-
         .lp-wrapper {
-
             position: relative;
-
             z-index: 10;
-
             width: 100%;
-
-            min-height: 100vh;
-
+            height: 100vh;
             display: flex;
-
             flex-direction: column;
-
             align-items: center;
-
-            justify-content: space-between;
-
-            padding: 50px 0;
-
+            justify-content: flex-end; /* Conteúdo para baixo para aproximar os elementos */
+            padding-bottom: 30px;
             background: 
-
-                radial-gradient(circle at center, rgba(2, 2, 2, 0.1) 0%, var(--bg) 90%),
-
-                url('jp-direto.jpg') center/cover no-repeat fixed;
-
+                radial-gradient(circle at center, rgba(2, 2, 2, 0.4) 0%, var(--bg) 95%),
+                url('DSC08016.jpg.jpeg') center/cover no-repeat fixed;
         }
 
-
-
-        .header-section { width: 100%; text-align: center; overflow: hidden; }
-
+        /* CARROSSEL NO TOPO */
+        .header-section { 
+            width: 100%; 
+            text-align: center; 
+            position: absolute; 
+            top: 20px; 
+        }
         
-
         .section-label { 
-
-            font-size: 12px; 
-
+            font-size: 11px; 
             text-transform: uppercase; 
-
             color: var(--primary); 
-
-            letter-spacing: 4px; 
-
-            margin-bottom: 15px;
-
+            letter-spacing: 3px; 
+            margin-bottom: 10px;
             font-weight: bold;
-
         }
 
-
-
-        /* CARROSSEL DE JOGOS */
-
-        .carousel-container {
-
-            display: flex;
-
-            width: 100%;
-
-            overflow: hidden;
-
-            padding: 10px 0;
-
-        }
-
-
-
-        .carousel-track {
-
-            display: flex;
-
-            gap: 20px;
-
-            animation: scroll 25s linear infinite;
-
-            padding-left: 20px;
-
-        }
-
-
-
-        @keyframes scroll {
-
-            0% { transform: translateX(0); }
-
-            100% { transform: translateX(-50%); }
-
-        }
-
-
+        .carousel-container { display: flex; width: 100%; overflow: hidden; }
+        .carousel-track { display: flex; gap: 10px; animation: scroll 25s linear infinite; padding-left: 15px; }
+        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
         .game-card {
-
-            background: rgba(255, 255, 255, 0.03);
-
-            backdrop-filter: blur(15px);
-
-            min-width: 260px;
-
-            padding: 20px;
-
-            border-radius: 24px;
-
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            min-width: 160px;
+            padding: 10px;
+            border-radius: 15px;
             border: 1px solid rgba(255, 255, 255, 0.1);
+        }
 
+        .team img { width: 30px; height: 30px; object-fit: contain; }
+        .team span { font-size: 10px; font-weight: bold; color: #fff; display: block; margin-top: 4px; }
+        .vs { font-weight: 900; color: var(--primary); font-size: 14px; margin: 0 5px; }
+        .teams-row { display: flex; align-items: center; justify-content: center; }
+
+        /* HEADLINE AJUSTADA */
+        .headline { 
+            font-family: 'Bebas Neue', sans-serif; 
+            font-size: clamp(40px, 12vw, 60px); 
+            text-transform: uppercase; 
+            line-height: 0.9; 
             text-align: center;
-
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-
+            margin-bottom: -5px; /* Puxa a caixa de aviso para cima */
+            padding: 0 20px;
         }
 
-
-
-        .league-name {
-
-            font-size: 10px;
-
-            color: #888;
-
-            text-transform: uppercase;
-
-            letter-spacing: 1px;
-
-            margin-bottom: 12px;
-
-            display: block;
-
+        /* SEÇÃO BAIXO (CAIXA E BOTÃO) */
+        .footer-section { 
+            width: 100%; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            padding: 0 20px; 
         }
 
-
-
-        .teams-row {
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: space-around;
-
-            gap: 10px;
-
+        /* CAIXA DE AVISO (IGUAL AO ÚLTIMO MODELO) */
+        .alert-box {
+            width: 100%;
+            max-width: 350px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 20px;
+            backdrop-filter: blur(10px);
+            z-index: 2;
         }
 
+        .alert-box p { font-size: 13px; color: #d1d1d1; text-align: center; line-height: 1.5; }
+        .alert-box span { color: #ff8800; font-weight: bold; margin-right: 4px; }
 
-
-        .team { display: flex; flex-direction: column; align-items: center; gap: 8px; flex: 1; }
-
-        .team img { width: 45px; height: 45px; object-fit: contain; }
-
-        .team span { font-size: 12px; font-weight: bold; color: #fff; white-space: nowrap; }
-
-        .vs { font-weight: 900; color: var(--primary); font-size: 18px; }
-
-
-
-        .headline { font-size: 26px; font-weight: 900; text-transform: uppercase; margin-top: 180px; line-height: 1; padding: 0 20px;}
-
-
-
-        /* BOTÃO E RODAPÉ */
-
-        .footer-section { width: 100%; display: flex; flex-direction: column; align-items: center; padding: 0 20px; }
-
-
-
-        .btn-container { width: 100%; max-width: 350px; margin-bottom: 30px; position: relative; }
-
-        
+        /* BOTÃO */
+        .btn-container { width: 100%; max-width: 350px; animation: pulse 2s infinite ease-in-out; }
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.03); } }
 
         .btn-border-beam {
-
-            position: relative; padding: 2px; border-radius: 18px; overflow: hidden; display: block; text-decoration: none;
-
+            position: relative; padding: 2px; border-radius: 14px; overflow: hidden; display: block; text-decoration: none;
         }
-
-
 
         .btn-border-beam::before {
-
             content: ""; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
-
             background: conic-gradient(transparent, transparent, var(--primary), transparent);
-
-            animation: rotate 4s linear infinite;
-
+            animation: rotate 3s linear infinite;
         }
-
-
 
         @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
-
-
         .btn-content {
-
-            position: relative; background: #0a0a0a; color: #fff; padding: 22px; border-radius: 16px;
-
-            font-size: 18px; font-weight: 900; text-transform: uppercase; display: block; z-index: 5; text-align: center;
-
+            position: relative; 
+            background: #0a0a0a; 
+            color: #fff; 
+            padding: 20px; 
+            border-radius: 12px;
+            font-size: 18px; 
+            font-weight: 900; 
+            text-transform: uppercase; 
+            display: block; 
+            z-index: 5; 
+            text-align: center;
         }
 
-
-
-        .social-proof { display: flex; align-items: center; gap: 12px; background: rgba(255, 255, 255, 0.05); padding: 10px 20px; border-radius: 100px; border: 1px solid rgba(255, 255, 255, 0.1); }
-
-        .avatars img { width: 30px; height: 30px; border-radius: 50%; border: 2px solid #000; margin-left: -12px; }
-
-        .avatars img:first-child { margin-left: 0; }
-
-        .proof-text { font-size: 11px; color: #ccc; font-weight: 600; }
-
-
-
     </style>
-
 </head>
-
 <body>
-
-
 
     <div class="bg-lines"></div>
 
-
-
     <div class="lp-wrapper">
-
         
-
         <div class="header-section">
-
             <p class="section-label">Jogos do Dia</p>
-
-            
-
             <div class="carousel-container">
-
                 <div class="carousel-track">
-
-                    
-
                     <div class="game-card">
-
-                        <span class="league-name">Brasileirão</span>
-
                         <div class="teams-row">
-
-                            <div class="team">
-
-                                <img src="Mirassol-SP HD.png" alt="Athletico-PR">
-
-                                <span>Athletico-PR</span>
-
-                            </div>
-
+                            <div class="team"><img src="Mirassol-SP HD.png"><span>ATHLETICO</span></div>
                             <div class="vs">VS</div>
-
-                            <div class="team">
-
-                                <img src="https://crests.football-data.org/1770.png" alt="Botafogo">
-
-                                <span>Botafogo</span>
-
-                            </div>
-
+                            <div class="team"><img src="https://crests.football-data.org/1770.png"><span>BOTAFOGO</span></div>
                         </div>
-
                     </div>
-
-
-
                     <div class="game-card">
-
-                        <span class="league-name">Brasileirão</span>
-
                         <div class="teams-row">
-
-                            <div class="team">
-
-                                <img src="Internacional.png" alt="Internacional">
-
-                                <span>Internacional</span>
-
-                            </div>
-
+                            <div class="team"><img src="Internacional.png"><span>INTER</span></div>
                             <div class="vs">VS</div>
-
-                            <div class="team">
-
-                                <img src="https://crests.football-data.org/1776.png" alt="São Paulo">
-
-                                <span>São Paulo</span>
-
-                            </div>
-
+                            <div class="team"><img src="https://crests.football-data.org/1776.png"><span>SÃO PAULO</span></div>
                         </div>
-
                     </div>
-
-
-
                     <div class="game-card">
-
-                        <span class="league-name">Brasileirão</span>
-
                         <div class="teams-row">
-
-                            <div class="team">
-
-                                <img src="https://crests.football-data.org/1765.png" alt="Fluminense">
-
-                                <span>Fluminense</span>
-
-                            </div>
-
+                            <div class="team"><img src="https://crests.football-data.org/1765.png"><span>FLU</span></div>
                             <div class="vs">VS</div>
-
-                            <div class="team">
-
-                                <img src="https://crests.football-data.org/1779.png" alt="Corinthians">
-
-                                <span>Corinthians</span>
-
-                            </div>
-
+                            <div class="team"><img src="https://crests.football-data.org/1779.png"><span>CORINTHIANS</span></div>
                         </div>
-
                     </div>
-
-
-
-                    <div class="game-card">
-
-                        <span class="league-name">Brasileirão</span>
-
-                        <div class="teams-row">
-
-                            <div class="team">
-
-                                <img src="https://crests.football-data.org/1771.png" alt="Cruzeiro">
-
-                                <span>Cruzeiro</span>
-
-                            </div>
-
-                            <div class="vs">VS</div>
-
-                            <div class="team">
-
-                                <img src="https://crests.football-data.org/1782.png" alt="Vitória">
-
-                                <span>Vitória</span>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-
                 </div>
-
             </div>
-
-        
-
-
-
-            <h1 class="headline">COMUNIDADE GARTUITA <br><span style="color: var(--primary)">LIBERADA</span></h1>
-
         </div>
- <div class="alert-box">
+
+        <h1 class="headline">
+            COMUNIDADE GRATUITA <br>
+            <span style="color: var(--primary)">LIBERADA</span>
+        </h1>
+
+        <div class="footer-section">
+            <div class="alert-box">
                 <p><span>*</span> Entre agora na comunidade, em breve vou mandar uma oportunidade para forrarmos juntos!</p>
             </div>
 
-
-        <div class="footer-section">
-
             <div class="btn-container">
-
                 <a href="https://mais.red/run/ivc-comunidade" class="btn-border-beam" onclick="trackClick()">
-
                     <span class="btn-content">🔥 ENTRAR NA COMUNIDADE</span>
-
                 </a>
-
             </div>
-
-
-
-            </div>
-
         </div>
-
-
-
     </div>
 
-
-
     <script>
-
     function trackClick() {
-
         fbq('track', 'Lead');
-
     }
-
     </script>
 
-
-
 </body>
-
 </html>
